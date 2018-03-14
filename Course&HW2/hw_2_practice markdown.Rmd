@@ -1,0 +1,80 @@
+---
+title: "Practice crawl with R"
+author: "SkySpiriT(李季陽)"
+date: "2018/3/14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Practice crawl with R
+
+This our 2nd HW for DSCD.
+
+We have to pratice crawl somthing on the NET with R.
+
+First,We have to choose a Web to crawl.
+
+I decided to choose starcraft bulletin in Bahamut forum for my firstweb to crawl.
+
+It's my favorite forum because I'm a starcraft palyer.
+
+##Let's do it !
+
+I used rvest as my tool to crawl.
+
+I want to search all title in first 3 pages of the forum.
+
+Code & result
+```{r title}
+library(xml2)
+library(rvest)
+library(magrittr)
+for(i in 1:3){
+sc=paste('https://forum.gamer.com.tw/B.php?page=',i,'&bsn=3037',sep='')
+read_html(sc)
+title=read_html(sc) 
+title=html_nodes(title,".b-list__main")
+title=html_text(title)
+title=gsub("\n", "", title)
+cat(title,sep='\n')
+}
+```
+
+##Choose title which you want!
+The crawl finished.
+
+But I don't want to see something which I don't want to see.
+
+Because i am Zerg player.
+
+So i choose Zerg to search in first 10 pages of the forum.
+
+Code & Result
+```{r pressure}
+for(i in 1:10){
+sc=paste('https://forum.gamer.com.tw/B.php?page=',i,'&bsn=3037',sep='')
+read_html(sc)
+title=read_html(sc) 
+title=html_nodes(title,".b-list__main")
+title=html_text(title)
+title=gsub("\n", "", title)
+title=title[grepl("蟲族",title)==TRUE ]
+cat(title,sep='\n')
+}
+```
+##Problems still needs to solve
+There is a problem still needs to solve.
+
+If the page doesn't have the things I want.
+
+It will have a blank and trun next row to enter text.
+
+I haved tried to solve it.
+
+But I failed.
+
+I will updated it in the future.
+
