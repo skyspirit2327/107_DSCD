@@ -21,7 +21,7 @@ I decided to choose starcraft bulletin in Bahamut forum for my firstweb to crawl
 
 It's my favorite forum because I'm a starcraft palyer.
 
-##Let's do it !
+## Let's do it !
 
 I used rvest as my tool to crawl.
 
@@ -43,7 +43,7 @@ cat(title,sep='\n')
 }
 ```
 
-##Choose title which you want!
+## Choose title which you want!
 The crawl finished.
 
 But I don't want to see something which I don't want to see.
@@ -65,7 +65,7 @@ title=title[grepl("蟲族",title)==TRUE ]
 cat(title,sep='\n')
 }
 ```
-##Problems still needs to solve
+## Problems still needs to solve
 There is a problem still needs to solve.
 
 If the page doesn't have the things I want.
