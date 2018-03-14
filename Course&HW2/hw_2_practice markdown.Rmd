@@ -28,7 +28,7 @@ I used rvest as my tool to crawl.
 I want to search all title in first 3 pages of the forum.
 
 Code & result
-```{r title}
+```{r title, echo=TRUE}
 library(xml2)
 library(rvest)
 library(magrittr)
@@ -53,7 +53,7 @@ Because i am Zerg player.
 So i choose Zerg to search in first 10 pages of the forum.
 
 Code & Result
-```{r pressure}
+```{r pressure, echo=TRUE}
 for(i in 1:10){
 sc=paste('https://forum.gamer.com.tw/B.php?page=',i,'&bsn=3037',sep='')
 read_html(sc)
