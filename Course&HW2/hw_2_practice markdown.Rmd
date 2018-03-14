@@ -39,7 +39,7 @@ title=read_html(sc)
 title=html_nodes(title,".b-list__main")
 title=html_text(title)
 title=gsub("\n", "", title)
-cat(title,sep='\n')
+print(title,sep='\n')
 }
 ```
 
@@ -62,7 +62,7 @@ title=html_nodes(title,".b-list__main")
 title=html_text(title)
 title=gsub("\n", "", title)
 title=title[grepl("蟲族",title)==TRUE ]
-cat(title,sep='\n')
+print(title,sep='\n')
 }
 ```
 ## Problems still needs to solve
