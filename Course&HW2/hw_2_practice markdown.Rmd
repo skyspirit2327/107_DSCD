@@ -41,9 +41,8 @@ title=html_nodes(title,".b-list__main")
 title=html_text(title)
 title=gsub("\n", "", title)
 result[[i]]=title
-print(result[[i]],sep='\n')
 }
-result
+print(result,sep='\n')
 ```
 
 ## Choose title which you want!
