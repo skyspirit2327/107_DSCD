@@ -32,6 +32,7 @@ Code & result
 library(xml2)
 library(rvest)
 library(magrittr)
+result=c()
 for(i in 1:3){
 sc=paste('https://forum.gamer.com.tw/B.php?page=',i,'&bsn=3037',sep='')
 read_html(sc)
@@ -39,8 +40,10 @@ title=read_html(sc)
 title=html_nodes(title,".b-list__main")
 title=html_text(title)
 title=gsub("\n", "", title)
-print(title,sep='\n')
+result[[i]]=title
+print(result[[i]],sep='\n')
 }
+result
 ```
 
 ## Choose title which you want!
