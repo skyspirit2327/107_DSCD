@@ -9,7 +9,6 @@ output: html_document
 library(xml2)
 library(rvest)
 library(magrittr)
-library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -33,14 +32,12 @@ I want to search all title in first 3 pages of the forum.
 
 Code & result
 ```{r title, echo=TRUE}
-result=c()
 for(i in 1:3){
   sc.url=paste('https://forum.gamer.com.tw/B.php?page=',i,'&bsn=3037',sep='')
   title=read_html(sc.url) %>% html_nodes(".b-list__main") %>% html_text()
   title=gsub("\n", "", title)
-  result[[i]]=title
+  print(paste(title,sep='\n'))
 }
-kable(result)
 ```
 
 ## Choose title which you want!
