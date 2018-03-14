@@ -42,7 +42,7 @@ title=html_text(title)
 title=gsub("\n", "", title)
 result[[i]]=title
 }
-print(result,sep='\n')
+result
 ```
 
 ## Choose title which you want!
