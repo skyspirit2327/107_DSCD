@@ -15,7 +15,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Practice crawl with R
 
 This our 2nd HW for DSCD.
-
+library(xml2)
+library(rvest)
+library(magrittr)ㄋ
 We have to pratice crawl somthing on the NET with R.
 
 First,We have to choose a Web to crawl.
@@ -45,9 +47,9 @@ The crawl finished.
 
 But I don't want to see something which I don't want to see.
 
-Because i am Zerg player.
+Because I am Zerg player.
 
-So i choose Zerg to search in first 10 pages of the forum.
+So I choose Zerg to search in first 10 pages of the forum.
 
 Code & Result
 ```{r pressure, echo=TRUE}
@@ -59,8 +61,8 @@ sc.url=paste('https://forum.gamer.com.tw/B.php?page=',i,'&bsn=3037',sep='')
   print(paste(title,sep='\n'))
 }
 ```
-## Problems still needs to solve
-There is a problem still needs to solve.
+## Problems still needs to be solve
+There is a problem still needs to be solve.
 
 If the page doesn't have the things I want.
 

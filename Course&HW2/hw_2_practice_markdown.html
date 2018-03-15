@@ -127,8 +127,7 @@ $(document).ready(function () {
 
 <div id="practice-crawl-with-r" class="section level2">
 <h2>Practice crawl with R</h2>
-<p>This our 2nd HW for DSCD.</p>
-<p>We have to pratice crawl somthing on the NET with R.</p>
+<p>This our 2nd HW for DSCD. library(xml2) library(rvest) library(magrittr)ㄋ We have to pratice crawl somthing on the NET with R.</p>
 <p>First,We have to choose a Web to crawl.</p>
 <p>I decided to choose starcraft bulletin in Bahamut forum for my firstweb to crawl.</p>
 <p>It’s my favorite forum because I’m a starcraft palyer.</p>
@@ -138,25 +137,102 @@ $(document).ready(function () {
 <p>I used rvest as my tool to crawl.</p>
 <p>I want to search all title in first 3 pages of the forum.</p>
 <p>Code &amp; result</p>
-<pre class="r"><code>library(xml2)</code></pre>
-<pre><code>## Warning: package 'xml2' was built under R version 3.3.3</code></pre>
-<pre class="r"><code>library(rvest)</code></pre>
-<pre><code>## Warning: package 'rvest' was built under R version 3.3.3</code></pre>
-<pre class="r"><code>library(magrittr)</code></pre>
-<pre><code>## Warning: package 'magrittr' was built under R version 3.3.3</code></pre>
 <pre class="r"><code>for(i in 1:3){
-sc=paste('https://forum.gamer.com.tw/B.php?page=',i,'&amp;bsn=3037',sep='')
-read_html(sc)
-title=read_html(sc) 
-title=html_nodes(title,&quot;.b-list__main&quot;)
-title=html_text(title)
-title=gsub(&quot;\n&quot;, &quot;&quot;, title)
-title
-print('\n')
+  sc.url=paste('https://forum.gamer.com.tw/B.php?page=',i,'&amp;bsn=3037',sep='')
+  title=read_html(sc.url) %&gt;% html_nodes(&quot;.b-list__main&quot;) %&gt;% html_text()
+  title=gsub(&quot;\n&quot;, &quot;&quot;, title)
+  print(paste(title,sep='\n'))
 }</code></pre>
-<pre><code>## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;</code></pre>
+<pre><code>##  [1] &quot;【其他】無限期徵招進板圖~~(已有新進板圖格式)12&quot;                        
+##  [2] &quot;【討論】《星海爭霸：高畫質重製版》常見問題解答&quot;                        
+##  [3] &quot;【討論】《星海爭霸II》新手常見問題解答-2017年11月版12&quot;                
+##  [4] &quot;【討論】合作模式&amp;執政官模式集中徵友串456&quot;                              
+##  [5] &quot;【討論】戰隊交友子板已變更為顯板&quot;                                      
+##  [6] &quot;【心得】本週異變(#96 全面轟炸) - 通關心得(附高手全指揮官單刷通關影片)&quot;
+##  [7] &quot;【攻略】【異變 #96】全面轟炸 (殘酷)&quot;                                   
+##  [8] &quot;【情報】合作任務社群更新：菲尼克斯更新&quot;                                
+##  [9] &quot;【情報】參加星海爭霸20週年Twitch直播活動， 領取專屬操作面板&quot;          
+## [10] &quot;【問題】請問鬼子三部曲的劇情包...  官網怎麼沒有賣??&quot;                   
+## [11] &quot;【問題】現在紅點都會很快出高階兵種?&quot;                                   
+## [12] &quot;【問題】關於自由之翼劇情戰役&quot;                                          
+## [13] &quot;【問題】不玩一代會不會不懂二代&quot;                                        
+## [14] &quot;【問題】劇情的一些小問題&quot;                                              
+## [15] &quot;【討論】合作交友~ 剛加入不久 主打韓與霍納&quot;                             
+## [16] &quot;【問題】特價商品期限&quot;                                                  
+## [17] &quot;【其他】有趣合作分享：跑的賊快的陸戰隊。&quot;                             
+## [18] &quot;【心得】史汪 vs 本週異變(#26 焚焰：殘酷) - 單刷通關心得&quot;              
+## [19] &quot;【情報】慶祝《星海爭霸》 20週年&quot;                                      
+## [20] &quot;【討論】INnoVation(T) vs. soO(Z)&quot;                                     
+## [21] &quot;【問題】求鑽Z以上陪練&quot;                                                 
+## [22] &quot;【情報】TBTL戰隊聯賽&quot;                                                  
+## [23] &quot;【問題】對練、合作、團戰以及死亡掙扎徵隊友&quot;                            
+## [24] &quot;【心得】亞坦尼斯專論&quot;                                                 
+## [25] &quot;【情報】TBTL戰隊聯賽&quot;                                                  
+## [26] &quot;【問題】 AI難度被鎖?&quot;                                                  
+## [27] &quot;【問題】攻城坦克&quot;                                                      
+## [28] &quot;【問題】人族開局&quot;                                                      
+## [29] &quot;【討論】本周萬聖節變異，短評心得。&quot;                                    
+## [30] &quot;【問題】電腦閃退&quot;                                                     
+##  [1] &quot;【問題】蓋塔生兵地圖推薦&quot;                                           
+##  [2] &quot;【心得】諾娃 vs 本週異變(#94驚魂夜：殘酷) - 通關心得&quot;              
+##  [3] &quot;【心得】菲尼克斯用法分享&quot;                                           
+##  [4] &quot;【心得】本周萬聖節變異(#94)小小心得&quot;                                
+##  [5] &quot;【心得】神族流程教學&quot;                                               
+##  [6] &quot;【問題】戰爭寶箱時限疑問&quot;                                           
+##  [7] &quot;本討論串已無文章&quot;                                                   
+##  [8] &quot;【情報】官方故事小說總覽&quot;                                          
+##  [9] &quot;【問題】現在已經沒有母艦核心了？？？&quot;                              
+## [10] &quot;【心得】4BG極限板 (我要上鑽石，開台囉!!!!!)&quot;                        
+## [11] &quot;【問題】滅絕特快車 電腦人類核彈設定點BUG?&quot;                         
+## [12] &quot;【討論】有人要一起練習的?我給ID要得請留言謝謝跟加一下好友&quot;          
+## [13] &quot;【閒聊】S6 Ep6 Mira &amp; Artanis Co-op Mission&quot;                       
+## [14] &quot;【問題】對戰ai 1vs1 無法提昇等級&quot;                                   
+## [15] &quot;【心得】德哈卡 vs 本週異變(#93破滅之息：殘酷) - 通關心得&quot;          
+## [16] &quot;【情報】合作任務社群更新：韓與霍納更新&quot;                             
+## [17] &quot;【其他】日常分享：跟我搶水晶的亞坦。&quot;                              
+## [18] &quot;【問題】如何限制 AI 操作&quot;                                           
+## [19] &quot;【攻略】【新版菲尼克斯+ 韓與霍納】異變#93 破滅之息 殘酷 分析/攻略 !&quot;
+## [20] &quot;【討論】2018神族4bg遇到人雙bs一bb堵門是否有解&quot;                      
+## [21] &quot;【情報】合作任務社群更新：整體改善&quot;                                 
+## [22] &quot;【討論】合作任務的熱鍵調整(版本4.1)&quot;                                
+## [23] &quot;【心得】諾娃 vs 本週異變(#91外交豁免權：殘酷) - 通關心得&quot;          
+## [24] &quot;【問題】請問之前用SC2地圖編輯器做出SC1戰役的連結怎麼都找不到了 ?&quot;   
+## [25] &quot;【實況】2/16 LolitaLife 亞服鑽一神族天梯新年生日場(收)333435&quot;       
+## [26] &quot;【問題】關於快速空投??&quot;                                             
+## [27] &quot;首篇已刪&quot;                                                          
+## [28] &quot;【心得】史汪 vs 本週異變(#92悲慘命運之輪：殘酷) - 通關心得&quot;       
+## [29] &quot;【情報】合作任務社群更新：凱拉克更新&quot;                               
+## [30] &quot;【閒聊】無聊白目玩家 封鎖能不配對到嗎?&quot;                            
+##  [1] &quot;【問題】新年活動&quot;                                       
+##  [2] &quot;【情報】星海一前史暨種族介紹&quot;                           
+##  [3] &quot;【情報】克普魯星區時間線&quot;                               
+##  [4] &quot;本討論串已無文章&quot;                                       
+##  [5] &quot;【討論】也許下一位指揮官還是人類&quot;                      
+##  [6] &quot;【問題】如何購買戰役-諾娃特務密令&quot;                     
+##  [7] &quot;【問題】人類機槍兵&quot;                                     
+##  [8] &quot;【其他】非日常分享：要瓦斯，給基地。&quot;                  
+##  [9] &quot;【問題】關於2017 戰爭寶箱&quot;                              
+## [10] &quot;本討論串已無文章&quot;                                       
+## [11] &quot;【閒聊】玩星海的男孩和講神族語錄的女孩&quot;                 
+## [12] &quot;【閒聊】求新手蔡逼一起練習 對戰 闖任務&quot;                 
+## [13] &quot;【問題】電腦&quot;                                           
+## [14] &quot;【問題】地圖編輯 怎麼孵化原本沒有的單位? 已解決&quot;       
+## [15] &quot;【討論】合作任務的難度&quot;                                 
+## [16] &quot;【其他】日常合作分享：地雷鋪滿地。&quot;                    
+## [17] &quot;【情報】陸戰隊模型組合動畫&quot;                            
+## [18] &quot;【問題】請問關於合作任務指揮官&quot;                         
+## [19] &quot;【問題】.有人知道那裡有人類單位語錄看嗎？&quot;              
+## [20] &quot;【攻略】【異變#90】礦業維艱 阿巴瑟 15分鐘內通關 (殘酷)&quot; 
+## [21] &quot;【閒聊】休閒難度下的，兩件簡短有趣小事情分享。&quot;         
+## [22] &quot;【問題】陸服&quot;                                           
+## [23] &quot;【閒聊】雷諾跟德哈卡&quot;                                  
+## [24] &quot;【心得】史汪 vs 本週異變(#90礦業維艱：殘酷) - 通關心得&quot;
+## [25] &quot;【攻略】【東方月靈戰】翻譯及推廣&quot;                      
+## [26] &quot;【閒聊】一個矛盾的畫面(單位技能)，無意間的發現～&quot;       
+## [27] &quot;【心得】求各方英雄高手&quot;                                 
+## [28] &quot;【問題】回鍋玩家種族選擇&quot;                               
+## [29] &quot;【問題】想問阿巴瑟如何防守&quot;                             
+## [30] &quot;【其他】四方爭霸修正版&quot;</code></pre>
 </div>
 <div id="choose-title-which-you-want" class="section level2">
 <h2>Choose title which you want!</h2>
@@ -166,26 +242,25 @@ print('\n')
 <p>So i choose Zerg to search in first 10 pages of the forum.</p>
 <p>Code &amp; Result</p>
 <pre class="r"><code>for(i in 1:10){
-sc=paste('https://forum.gamer.com.tw/B.php?page=',i,'&amp;bsn=3037',sep='')
-read_html(sc)
-title=read_html(sc) 
-title=html_nodes(title,&quot;.b-list__main&quot;)
-title=html_text(title)
-title=gsub(&quot;\n&quot;, &quot;&quot;, title)
-title=title[grepl(&quot;蟲族&quot;,title)==TRUE ]
-title
-print('\n')
+sc.url=paste('https://forum.gamer.com.tw/B.php?page=',i,'&amp;bsn=3037',sep='')
+  title=read_html(sc.url) %&gt;% html_nodes(&quot;.b-list__main&quot;) %&gt;% html_text()
+  title=gsub(&quot;\n&quot;, &quot;&quot;, title)
+  title=title[grepl(&quot;蟲族&quot;,title)==TRUE ]
+  print(paste(title,sep='\n'))
 }</code></pre>
-<pre><code>## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;
-## [1] &quot;\n&quot;</code></pre>
+<pre><code>## character(0)
+## character(0)
+## character(0)
+## character(0)
+## [1] &quot;【其他】蟲族之心劇情影片分享&quot;
+## [1] &quot;【問題】蟲族如何防人族快攻.&quot;        
+## [2] &quot;【問題】新手詢問蟲族打神族&quot;         
+## [3] &quot;【問題】請問蟲族該怎麼打人類機械化?&quot;
+## character(0)
+## character(0)
+## [1] &quot;【戰術】SoBaD星海教學（9/20更新蟲族戰術3：蟲族vs 人類2BB空投）&quot;
+## [1] &quot;【情報】4/17 大味精對目前蟲族之心平衡性的看法&quot;
+## [2] &quot;【心得】【神族1v1教學】對蟲族思路及流程推薦&quot;</code></pre>
 </div>
 <div id="problems-still-needs-to-solve" class="section level2">
 <h2>Problems still needs to solve</h2>
