@@ -5,10 +5,7 @@ date: "2018/3/14"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-library(xml2)
-library(rvest)
-library(magrittr)
+```{r setup, include=True}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -34,12 +31,17 @@ I want to search all title in first 3 pages of the forum.
 
 Code & result
 ```{r title, echo=TRUE}
+library(xml2)
+library(rvest)
+library(magrittr)
+result=c()
 for(i in 1:3){
   sc.url=paste('https://forum.gamer.com.tw/B.php?page=',i,'&bsn=3037',sep='')
   title=read_html(sc.url) %>% html_nodes(".b-list__main") %>% html_text()
   title=gsub("\n", "", title)
-  print(paste(title,sep='\n'))
+  result[[i]]=title
 }
+result
 ```
 
 ## Choose title which you want!
