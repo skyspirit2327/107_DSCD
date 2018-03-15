@@ -138,17 +138,6 @@ $(document).ready(function () {
 <p>I used rvest as my tool to crawl.</p>
 <p>I want to search all title in first 3 pages of the forum.</p>
 <p>Code &amp; result</p>
-<pre class="r"><code>library(xml2)
-library(rvest)
-library(magrittr)
-result=c()
-for(i in 1:3){
-  sc.url=paste('https://forum.gamer.com.tw/B.php?page=',i,'&amp;bsn=3037',sep='')
-  title=read_html(sc.url) %&gt;% html_nodes(&quot;.b-list__main&quot;) %&gt;% html_text()
-  title=gsub(&quot;\n&quot;, &quot;&quot;, title)
-  result[[i]]=title
-}
-unlist(result)</code></pre>
 <pre><code>##  [1] &quot;【其他】無限期徵招進板圖~~(已有新進板圖格式)12&quot;                        
 ##  [2] &quot;【討論】《星海爭霸：高畫質重製版》常見問題解答&quot;                        
 ##  [3] &quot;【討論】《星海爭霸II》新手常見問題解答-2017年11月版12&quot;                
@@ -247,30 +236,6 @@ unlist(result)</code></pre>
 <p>Because I am Zerg player.</p>
 <p>So I choose Zerg to search in first 10 pages of the forum.</p>
 <p>Code &amp; Result</p>
-<pre class="r"><code>for(i in 1:10){
-sc.url=paste('https://forum.gamer.com.tw/B.php?page=',i,'&amp;bsn=3037',sep='')
-  title=read_html(sc.url) %&gt;% html_nodes(&quot;.b-list__main&quot;) %&gt;% html_text()
-  title=gsub(&quot;\n&quot;, &quot;&quot;, title)
-  title=title[grepl(&quot;蟲族&quot;,title)==TRUE ]
-   result[[i]]=title
-}
-unlist(result)</code></pre>
-<pre><code>## [1] &quot;【其他】蟲族之心劇情影片分享&quot;                                 
-## [2] &quot;【問題】蟲族如何防人族快攻.&quot;                                   
-## [3] &quot;【問題】新手詢問蟲族打神族&quot;                                    
-## [4] &quot;【問題】請問蟲族該怎麼打人類機械化?&quot;                           
-## [5] &quot;【戰術】SoBaD星海教學（9/20更新蟲族戰術3：蟲族vs 人類2BB空投）&quot;
-## [6] &quot;【情報】4/17 大味精對目前蟲族之心平衡性的看法&quot;                 
-## [7] &quot;【心得】【神族1v1教學】對蟲族思路及流程推薦&quot;</code></pre>
-<pre class="r"><code>result = data.frame(result=unlist(result))
-head(result)</code></pre>
-<pre><code>##                                                           result
-## 1                                  【其他】蟲族之心劇情影片分享
-## 2                                    【問題】蟲族如何防人族快攻.
-## 3                                     【問題】新手詢問蟲族打神族
-## 4                            【問題】請問蟲族該怎麼打人類機械化?
-## 5 【戰術】SoBaD星海教學（9/20更新蟲族戰術3：蟲族vs 人類2BB空投）
-## 6                  【情報】4/17 大味精對目前蟲族之心平衡性的看法</code></pre>
 </div>
 
 
