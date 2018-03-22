@@ -62,6 +62,5 @@ sc.url=paste('https://forum.gamer.com.tw/B.php?page=',i,'&bsn=3037',sep='')
    result[[i]]=title
 }
 unlist(result)
-result = data.frame(result=unlist(result))
 
 ```
