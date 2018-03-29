@@ -75,7 +75,7 @@ data = tm_map(data,removeWords,stopward)
 
 最後兩行是清除停止詞用。
 
-##Segmentation
+## Segmentation
 
 再拿到一大串文字之後，
 
@@ -109,7 +109,7 @@ Word = as.data.frame(tab[tab>=1])
 
 一行是Freq代表文字的出現次數。
 
-##WordCloud
+## WordCloud
 
 斷完詞後，
 
@@ -144,10 +144,15 @@ colors — 字體顏色列表
 
 ordered.colors —控製字體顏色使用順序。T：按照指定的順序給                   出每個關鍵詞字體顏色，（似乎是要求顏色列表中                 每個顏色一一對應關鍵詞列表）；F：任意給出字                 體顏色。
 
-##Learing resourse
+## Learing resourse
 1.
+
 http://rstudio-pubs-static.s3.amazonaws.com/12422_b2b48bb2da7942acaca5ace45bd8c60c.html
+
 2.
+
 http://biostat.tmu.edu.tw/enews/ep_download/15rb.pdf
+
 3.
+
 http://yphuang.github.io/blog/2016/03/04/text-mining-tm-package/
