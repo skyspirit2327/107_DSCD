@@ -6,10 +6,6 @@ res = httr::GET(url)
 title = httr::content(res)
 title=title$data
 title=unlist(title)
-direction='D:/SkySpiriT/NTU/107_DSCD/hw4/corpus.txt'
-write(title, file =direction,
-      ncolumns = length(title), sep=",")
-
 library(rJava)
 library(tm) 
 library(Rwordseg) 
