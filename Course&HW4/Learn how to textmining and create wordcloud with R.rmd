@@ -1,0 +1,153 @@
+---
+title: "Learn how to textmining and create wordcloud with R"
+author: "SkySpiriT"
+date: "2018年3月29日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+```
+
+## Let's Learn how to textmining and create wordcloud with R
+
+在抓好資料(data)後，
+
+裡面通常會有很多不必要的程式資訊，
+
+因此我們要先行處理掉讓資料更清楚，
+
+首先要先安裝5個套件如下
+
+```{r ,eval=FALSE}
+library(tm)# Text Mining Package
+library(Rwordseg)#中文斷詞用
+#此包裝安裝前需要rJava
+#這兩個包的安裝方法比較特別可看https://blog.csdn.net/sinat_26917383/article/details/50867851
+library(tmcn)#處理中文字的輔助套件
+library(wordcloud)# Word Clouds
+library(colorspace)# Color Space Manipulation
+
+```
+
+## Let's textmining !
+
+在處理文字前，
+
+我們並須先建立一個corpus(又稱文字庫，語料庫)給R當作操作空間，
+
+因為tm_mp是使用於corpus上。
+
+```{r,eval=FALSE}
+Yourcorpus= Corpus(VectorSource(data))
+
+```
+
+等號的左邊是你要幫你的Corpus的命名，
+
+Corpus是建立文字庫的函數，
+
+VectorSource是你要從哪裡取得資料的方法(另外還有DivSource等等方法可自行研究)，
+
+data就是你之前抓到的資料。
+
+再來就是簡單的資料清理:
+
+```{r,eval=FALSE}
+data = tm_map(data,stripWhitespace) 
+data = tm_map(data,removePunctuation) 
+data = tm_map(data,removeNumbers) 
+data = tm_map(data,function(word){gsub("[A-Za-z0-9]","", word)})
+
+stopward=stopwordsCN()
+data = tm_map(data,removeWords,stopward)
+
+```
+
+這邊主要做資料的整理，包含:
+
+清除多餘的空白鍵(Strip extra whitespace)，
+
+清除標點符號(Remove punctuation)，
+
+清除數字(Remove numbers)，
+
+以及英文大小寫(gsub( "[A-Za-z0-9]", "", word)等等，
+
+最後兩行是清除停止詞用。
+
+##Segmentation
+
+再拿到一大串文字之後，
+
+最重要的就是斷詞拉，
+
+畢竟我們是要做文字雲。
+```{r,eval=FALSE}
+data = segmentCN(data$content,nature = TRUE)  
+data= unlist(data) 
+noun = data[names(data)=="n" ] 
+tab = table(noun)
+Word = as.data.frame(tab[tab>=1])
+
+```
+
+第一行是用斷詞函數segmentCN來斷詞，
+
+第二行是把list unlist，
+
+第三行看起來很複雜，
+
+但其實只是在斷詞後segmentCN函數會給每個詞彙一個name(詞性)，
+
+我們只是把data中的名詞(詞性=n)挑出來((names(data)==’n’)設為noun，
+
+後面兩行就是把名詞做次數統計並生出一個dataframe內含我們要的文字。
+
+要注意生出的dataframe會有兩行:
+
+一行是noun代表生成的文字，
+
+一行是Freq代表文字的出現次數。
+
+##WordCloud
+
+斷完詞後，
+
+就是帶入文字雲函數生成文字雲拉!
+
+```{r,eval=FALSE}
+wordcloud(words=Word$noun,freq=Word$Freq,min.freq=2,
+  random.order=F,ordered.colors=T,scale=c(5,0.1),
+  colors=rainbow_hcl(nrow(Word)))
+
+```
+
+參數:
+
+words — 關鍵詞列表
+
+freq  — 關鍵詞對應的詞頻列表
+
+scale — 顯示字體大小的範圍，例如c(3,0.3),最大字體是3，最小          字體是0.3 
+
+min.freq — 最小詞頻，低於最小詞頻的詞不會被顯示
+
+max.words — 顯示的最大詞數量。
+
+random.orde r—詞在圖上的排列順序。T：詞隨機排列；F：詞按頻                 數從圖中心位置往外降序排列，即頻數大的詞出現                 在中心位置。
+
+random.color —控制詞的字體顏色。T：字體顏色隨機分配；F：根                 據頻數分配字體顏色。
+
+rot.per — 控制詞擺放角度。T：旋轉90度；F：水平擺放。
+
+colors — 字體顏色列表
+
+ordered.colors —控製字體顏色使用順序。T：按照指定的順序給                   出每個關鍵詞字體顏色，（似乎是要求顏色列表中                 每個顏色一一對應關鍵詞列表）；F：任意給出字                 體顏色。
+
+##Learing resourse
+1.
+http://rstudio-pubs-static.s3.amazonaws.com/12422_b2b48bb2da7942acaca5ace45bd8c60c.html
+2.
+http://biostat.tmu.edu.tw/enews/ep_download/15rb.pdf
+3.
+http://yphuang.github.io/blog/2016/03/04/text-mining-tm-package/
