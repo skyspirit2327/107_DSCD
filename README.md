@@ -17,7 +17,12 @@
 
 # week 4
 1.Practice FB API to crawl.
+
 2.Practice clean data from crawling .
+
 3.Use the data above to create a wordcloud.
+
+4.Result showing:
+
 
 # week 5
