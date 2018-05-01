@@ -1,16 +1,28 @@
 # 107_DSCD
-107年度下學期 資料科學程式設計
-# 李季陽的課程紀錄與學習空間
+107 Second Semester Data Science Code Design lesson
+# SkySpiriT's lesson and homework record
 # week 1
-1.github練習(上傳，建資料夾，修改)
+1.Practice use github(upload，new folder，update data).
 
-2.r複習
+2.review using R.
+
 # week 2
-1.爬蟲練習(rvest),並練習篩選所要爬的標題
+1.Practice crawl with R in package rvest,and pratice choose which to crawl.
 
-2.學習Rmarkdown
+2.Practice Rmarkdown.
 
-3.結果呈現:https://skyspirit2327.github.io/107_DSCD/Course&HW2/hw_2_practice_markdown.html
+3.Result showing:https://skyspirit2327.github.io/107_DSCD/Course&HW2/hw_2_practice_markdown.html
+
 # week 3
 
 # week 4
+1.Practice FB API to crawl.
+
+2.Practice clean data from crawling .
+
+3.Use the data above to create a wordcloud.
+
+4.Result showing:
+
+
+# week 5
