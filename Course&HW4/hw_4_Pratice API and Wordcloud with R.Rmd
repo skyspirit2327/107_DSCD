@@ -1,0 +1,81 @@
+---
+title: "hw_4_Pratice API and Wordcloud with R"
+author: "SkySpiriT"
+date: "2018年5月1日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Use API to crawl
+
+I have used 'rvest' package to crawl information before.
+
+But this time,let's use different way to crawl !
+
+API like a back door created by big company.
+
+It is a easyier way to crawl,but it will let companies to trace your action.
+
+## Facebook API
+
+I decided to use Facebbok API for practicing.
+
+And my target is:
+
+let's find some secret of StarCraft2's facebook fan page!
+```{r message=FALSE, warning=FALSE}
+library(httr)
+token = 'EAACEdEose0cBAEs19ju7PVNZBxKtCFUsZBGRDqrDpGPrL84c0c15EBHUsCcd34uAYz13k1gW8qz5Hv2p98xDjm8eGZBYGjwinen5S3qxLAK7dW3E8PXrdMSxZAHH48ImyzZBrlTpxyqt8PvwXyDacCIOILNVKUGcDwCZACZADvff1wZA33osnbaRez9PHCCICW7ZCZCApnBP5ZC9gZCzqzIYYJOY'
+urlhead ='https://graph.facebook.com/v2.12/StarCraftZHTW/posts?fields=message&access_token='
+url = paste0(urlhead,token)
+res = httr::GET(url)
+title = httr::content(res)
+title=title$data
+title=unlist(title)
+title[1:5]
+```
+
+##  text cleaning & segment
+After getting text of the post,there is a important thing we need to be do:text cleaning!
+
+We have to clean the word we don't want to see(ex.Punctuation,Numbers,stopwords...)
+
+After cleaning the word,we need to segment word and choose which part of speech we want.
+
+```{r message=FALSE, warning=FALSE}
+library(rJava)
+library(tm) 
+library(Rwordseg) 
+library(tmcn) 
+library(wordcloud) 
+library(colorspace)
+Data = Corpus(VectorSource(title))
+Data = tm_map(Data ,stripWhitespace)
+Data = tm_map(Data ,removePunctuation)
+Data = tm_map(Data ,removeNumbers)
+Data = tm_map(Data ,function(word){gsub("[A-Za-z0-9]","", word)})
+stopward=stopwordsCN()
+Data = tm_map(Data,removeWords,stopward)
+Data=unlist(Data)
+Wcloud = segmentCN(Data, nature = TRUE)
+Wcloud = unlist( Wcloud )
+noun = Wcloud[ names ( Wcloud ) == "n" ]
+tab = table( noun )
+Word = as.data.frame( tab[ tab >= 1 ] )
+Word
+```
+
+## WordCloud!
+The last step is :Creating my own wordcloud!
+
+I trust everyone having the exprience that see the wordcloud create by FB and appear on their friend's wall.
+
+But this time ,I tried to create my own wordcloud!
+```{r message=FALSE, warning=FALSE}
+wordcloud(words = Word$noun, freq = Word$Freq,min.freq =10,
+  random.order = F, ordered.colors = T, scale=c(3,0.1),
+  colors = rainbow_hcl( nrow( Word ) ))
+```
