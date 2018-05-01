@@ -11,7 +11,9 @@
 
 2.Practice Rmarkdown.
 
-3.Result showing:https://skyspirit2327.github.io/107_DSCD/Course&HW2/hw_2_practice_markdown.html
+3.Result showing:
+
+https://skyspirit2327.github.io/107_DSCD/Course&HW2/hw_2_practice_markdown.html
 
 # week 3
 
@@ -22,7 +24,9 @@
 
 3.Use the data above to create a wordcloud.
 
-4.Result showing:https://skyspirit2327.github.io/107_DSCD/blob/master/Course%26HW4/hw_4_Pratice_API_and_Wordcloud_with_R.html
+4.Result showing:
+
+https://skyspirit2327.github.io/107_DSCD/blob/master/Course%26HW4/hw_4_Pratice_API_and_Wordcloud_with_R.html
 
 
 # week 5
