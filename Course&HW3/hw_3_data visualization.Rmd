@@ -20,6 +20,7 @@ So i decide to research the player of LOL in LMS league!
 library(plotly)
 library(RColorBrewer)
 ```
+
 ## What's next?
 I found the data from http://2017.lms.garena.tw/stats
 
@@ -62,17 +63,23 @@ time=factor(c('2016spring','2016spring','2016spring','2016spring','2016spring','
 ## Let's take a look!
 
 let's see the data between palyers.
+
 ```{r }
 ggplot(data=Data, aes(x=time, y=KDA, group=names, colour=names)) + geom_point() +geom_line()
 ```
+
 In KDA,I find that Unified,Betty,NL,BeBe,LilV,AN have better performence than others.
+
 ```{r }
 ggplot(data=Data, aes(x=time, y=mpm, group=names, colour=names)) + geom_point() +geom_line()
 ```
+
 In minion gain per minion.I find that Betty,LilV,RD,BeBe,Unified, have better performence than others.
+
 ```{r }
 ggplot(data=Data, aes(x=time, y=KP, group=names, colour=names)) + geom_point() +geom_line()
 ```
+
 In kill participation.I find that LilV,RD,Unified,Corgi,BeBe have better performence than others.
 
 ## First Console
