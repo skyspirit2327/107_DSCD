@@ -16,7 +16,13 @@
 https://skyspirit2327.github.io/107_DSCD/Course&HW2/hw_2_practice_markdown.html
 
 # week 3
+1.Learn how to draw graph & chart with package ggplot .
 
+2.Practice data visualizing skill with R
+
+3.Result showing:
+
+https://skyspirit2327.github.io/107_DSCD/Course&HW3/hw_3_data_visualization.html
 # week 4
 1.Practice FB API to crawl.
 
