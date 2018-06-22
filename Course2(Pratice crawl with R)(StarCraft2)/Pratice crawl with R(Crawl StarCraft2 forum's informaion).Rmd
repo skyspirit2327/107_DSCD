@@ -1,5 +1,5 @@
 ---
-title: "Practice crawl with R"
+title: "Practice crawl with R(Crawl StarCraft2 forum's informaion)"
 author: "SkySpiriT(李季陽)"
 date: "2018/3/14"
 output: html_document
