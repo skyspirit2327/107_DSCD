@@ -1,5 +1,5 @@
 ---
-title: "hw_3_data visualization"
+title: "Practice data visualization with R((Survey LOL team in LMS))"
 author: "SkySpiriT"
 date: "2018年5月9日"
 output: html_document
