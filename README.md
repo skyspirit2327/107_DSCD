@@ -11,7 +11,7 @@
 
 2.Practice Rmarkdown.
 
-3.Result showing:
+3.Result showing:Crawl StarCraft2 forum's informaion
 
 https://skyspirit2327.github.io/107_DSCD/Course2(Pratice%20crawl%20with%20R)(StarCraft2)/Pratice%20crawl%20with%20R(Crawl%20StarCraft2%20forum's%20informaion).html
 
@@ -20,7 +20,7 @@ https://skyspirit2327.github.io/107_DSCD/Course2(Pratice%20crawl%20with%20R)(Sta
 
 2.Practice data visualizing skill with R
 
-3.Result showing:
+3.Result showing:Survey LOL team in LMS
 
 https://skyspirit2327.github.io/107_DSCD/Course3(Practice%20data%20visualization)(LOL)/Practice%20data%20visualization%20with%20R(Survey%20LOL%20team%20in%20LMS).html
 
@@ -31,7 +31,7 @@ https://skyspirit2327.github.io/107_DSCD/Course3(Practice%20data%20visualization
 
 3.Use the data above to create a wordcloud.
 
-4.Result showing:
+4.Result showing:Survey StarCraft's fanpage on FB
 
 https://skyspirit2327.github.io/107_DSCD/Course4(Pratice_APIand_Wordcloud_with%20R)(StarCraft2)/Pratice%20API%20and%20Wordcloud%20with%20R(Survey%20StarCraft's%20fanpage%20on%20FB).html
 
