@@ -1,5 +1,5 @@
 ---
-title: "hw_4_Pratice API and Wordcloud with R"
+title: "Pratice API and Wordcloud with R(Survey StarCraft's fanpage on FB)"
 author: "SkySpiriT"
 date: "2018年5月1日"
 output: html_document
@@ -28,7 +28,7 @@ And my target is:
 let's find some secret of StarCraft2's facebook fan page!
 ```{r message=FALSE, warning=FALSE}
 library(httr)
-token = 'EAACEdEose0cBAEs19ju7PVNZBxKtCFUsZBGRDqrDpGPrL84c0c15EBHUsCcd34uAYz13k1gW8qz5Hv2p98xDjm8eGZBYGjwinen5S3qxLAK7dW3E8PXrdMSxZAHH48ImyzZBrlTpxyqt8PvwXyDacCIOILNVKUGcDwCZACZADvff1wZA33osnbaRez9PHCCICW7ZCZCApnBP5ZC9gZCzqzIYYJOY'
+token = 'EAACEdEose0cBACE1HuRq8mmvO0T6oBU05nIh1KGkRkV3sZC0GTsDCkOZBHc2fSvNrYFDrPKuZBsMtIgz6npqRg065DeZBwq1ZAZCV9t7zZA40OPGNnYhCY81jem0akwsyIjWJDAvfrqNeOsITw2PCSh4HcfgLSJro8Pgv5YoYUcJrQHMQm2B6ediZBlhFUq3uD5pEp8VC7Ipf5tE7rPlSYuu'
 urlhead ='https://graph.facebook.com/v2.12/StarCraftZHTW/posts?fields=message&access_token='
 url = paste0(urlhead,token)
 res = httr::GET(url)
@@ -75,7 +75,7 @@ I trust everyone having the exprience that see the wordcloud create by FB and ap
 
 But this time ,I tried to create my own wordcloud!
 ```{r message=FALSE, warning=FALSE}
-wordcloud(words = Word$noun, freq = Word$Freq,min.freq =10,
+wordcloud(words = Word$noun, freq = Word$Freq,min.freq =1,
   random.order = F, ordered.colors = T, scale=c(3,0.1),
   colors = rainbow_hcl( nrow( Word ) ))
 ```
