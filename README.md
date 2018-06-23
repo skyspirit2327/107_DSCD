@@ -37,3 +37,27 @@ https://skyspirit2327.github.io/107_DSCD/Course4(Pratice_APIand_Wordcloud_with%2
 
 
 # week 5
+1.Practice TF-IDF algorithm.
+
+2.Przctice use the skills learnt beofre to finish every project. 
+
+3.Result showing: (Still not availdable)
+
+# week 6
+1.Learn to how to use new ML algorithm from others artical.
+
+# week 7 
+1.Learn to how to use SVM algorithm.
+
+2.Try to use SVM algorithm to predicted survive in Titanic event.
+
+3.Result showing: (Still not availdable)
+
+# week 8
+1.Learn to how to use Apriori algorithm.
+
+2.Try to use Apriori algorithm in own project.
+
+3.Result showing:Does Karsa make RNG better?
+
+https://skyspirit2327.github.io/107_DSCD/Project4(Practice%20Apriori%20algorithm)(LOL)/Does Karsa make RNG better(apriori_analyze).html
