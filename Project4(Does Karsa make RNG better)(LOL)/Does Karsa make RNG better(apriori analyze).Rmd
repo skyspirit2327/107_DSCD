@@ -1,0 +1,106 @@
+---
+title: "Does Karsa make RNG better?"
+author: "SkySpiriT"
+date: "2018年6月23日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Karsa and Mlxg
+
+In world of LOL , there is a chinese team: RNG .
+
+It's one of best team in the world.
+
+There is a taiwanese palyer :Karsa.
+
+In this year, go to RNG from taiwanese team FW as their new Jungler.(Jungler is a role position in LOL)
+
+But there is a question.
+
+RNG still have a original Jungler :Mlxg.
+
+There is a fighting between Mlxg& Karsa's fans: Which one is better?
+
+It's also I confuse about.
+
+So,let's survey!
+
+## Get RNG race information
+
+I get the race in April to June of RNG by hands Because it's a asactive server pages that i can't use rvest to crawl information.
+
+And turn it into a csv and read it.
+
+Website:https://lol.ggesports.com/zh-TW/Team/Matches?teamId=52
+
+```{r}
+data=read.csv('D:/SkySpiriT/NTU/107_DSCD/Project4(Does Karsa make RNG better)(LOL)/RNG.csv')
+data
+```
+
+## Apirioi algorithm!
+
+What's next?
+
+I decide to use a ML algorithm to survey.
+
+That's Apirioi algorithm!
+
+It can find the relevance between things.
+
+Let's take a look!
+
+```{r}
+library(arules)
+library(arulesViz)
+rule <- apriori(data,parameter=list(minlen=4, supp=0.1, conf=0.7),  
+                appearance = list(default="lhs",rhs=c("result=Win", "result=Lose")))  
+sort.rule <- sort(rule, by="lift")
+```
+
+There is another things to do .
+
+Clean the rule.
+
+Example:
+
+Rule1:A & B play will win the game.
+
+Rule2:A & B & C play will win the game.
+
+Rule2 is more precise than rule1.
+
+Why don't we delete rule1?
+```{r}
+subset.matrix <- as.matrix(is.subset(x=sort.rule, y=sort.rule))
+subset.matrix[lower.tri(subset.matrix, diag=T)] <- NA
+redundant <- colSums(subset.matrix, na.rm=T) >= 1
+sort.rule <- sort.rule[!redundant]
+```
+
+## Result!
+```{r}
+inspect(sort.rule)
+```
+
+By the result,we can find that.
+
+Karsa is a little bit better than Mlxg(by lift)
+
+But,
+
+there is another thing we can find.
+
+When Karsa win the game,it is Able playing ADC most.(ADC is a another role Position in LOL)
+
+But When Mlxg win the game,it is Uzi playing ADC most.
+
+It show that Karsa and Mlxg also play an imprtant role in RNG.
+
+So RNG fans,
+
+let's not to fight for them, let's be fans of both of them! 
