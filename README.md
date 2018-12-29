@@ -60,4 +60,4 @@ https://skyspirit2327.github.io/107_DSCD/Course4(Pratice_APIand_Wordcloud_with%2
 
 3.Result showing : Does Karsa make RNG better?
 
-https://skyspirit2327.github.io/107_DSCD/Project4(Practice%20Apriori%20algorithm)(LOL)/Does Karsa make RNG better(apriori_analyze).html
+https://skyspirit2327.github.io/107_DSCD/Project4(Practice%20Apriori%20algorithm)(LOL)/Does%20Karsa%20make%20RNG%20better(apriori_analyze).html
